@@ -60,11 +60,32 @@ class SinglyLinkedList:
         del todel
         return return_val
 
+    def deleteFromEnd(self):
+        if self.head == None:
+            warnings.warn('Linked List is empty', RuntimeWarning)
+            return None
+
+        curr = self.head
+        if curr.next == None:
+            todel = self.head
+            return_val = todel.data
+            self.head = None
+
+        else:
+            while curr.next.next:
+                curr = curr.next
+            todel = curr.next
+            return_val = todel.data
+            curr.next = None
+
+        del todel
+        return return_val
+
     def printList(self, seperator=" -> "):
         if self.head == None:
             warnings.warn('Linked List is empty', RuntimeWarning)
             return
-            
+
         curr = self.head
         while curr is not None:
             print(curr.data, end=seperator)
