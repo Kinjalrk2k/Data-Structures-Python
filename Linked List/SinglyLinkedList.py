@@ -1,3 +1,6 @@
+import warnings
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -26,12 +29,26 @@ class SinglyLinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def insertAt(self, data, pos: int):
+        if pos == 0:
+            self.insertAtBegining(data)
+            return
+
+        new_node = Node(data)
+        curr = self.head
+
+        try:
+            for _ in range(pos-1):
+                curr = curr.next
+
+            new_node.next = curr.next
+            curr.next = new_node
+        except AttributeError:
+            warnings.warn('Position passed is out of bounds', RuntimeWarning)
+
     def printList(self, seperator=" -> "):
         curr = self.head
         while curr is not None:
             print(curr.data, end=seperator)
             curr = curr.next
         print("\b"*len(seperator) + " "*len(seperator) + "\b"*len(seperator))
-
-
-
