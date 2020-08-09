@@ -40,13 +40,31 @@ class SinglyLinkedList:
         try:
             for _ in range(pos-1):
                 curr = curr.next
-
             new_node.next = curr.next
             curr.next = new_node
         except AttributeError:
             warnings.warn('Position passed is out of bounds', RuntimeWarning)
 
+    def deleteFromBeginning(self):
+        if self.head == None:
+            warnings.warn('Linked List is empty', RuntimeWarning)
+            return None
+
+        todel = self.head
+        return_val = todel.data
+        if todel.next == None:
+            self.head = None
+        else:
+            self.head = todel.next
+
+        del todel
+        return return_val
+
     def printList(self, seperator=" -> "):
+        if self.head == None:
+            warnings.warn('Linked List is empty', RuntimeWarning)
+            return
+            
         curr = self.head
         while curr is not None:
             print(curr.data, end=seperator)

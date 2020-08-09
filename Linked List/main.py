@@ -7,5 +7,10 @@ if __name__ == "__main__":
     for i in range(5):
         a.insertAtBegining(i)
 
-    a.insertAt(10, 5)
     a.printList()
+
+    for _ in range(5):
+        a.deleteFromBeginning()
+
+    a.printList()
+    a.deleteFromBeginning()
