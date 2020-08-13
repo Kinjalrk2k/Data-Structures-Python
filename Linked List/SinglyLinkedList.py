@@ -68,18 +68,35 @@ class SinglyLinkedList:
         curr = self.head
         if curr.next == None:
             todel = self.head
-            return_val = todel.data
             self.head = None
 
         else:
             while curr.next.next:
                 curr = curr.next
             todel = curr.next
-            return_val = todel.data
             curr.next = None
 
+        return_val = todel.data
         del todel
         return return_val
+
+    def deleteFrom(self, pos: int):
+        if pos == 0:
+            self.deleteFromBeginning()
+            return
+
+        curr = self.head
+
+        try:
+            for _ in range(pos-1):
+                curr = curr.next
+            todel = curr.next
+            curr.next = curr.next.next
+            return_val = todel.data
+            del todel
+            return return_val
+        except AttributeError:
+            warnings.warn('Position passed is out of bounds', RuntimeWarning)
 
     def printList(self, seperator=" -> "):
         if self.head == None:

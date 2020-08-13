@@ -10,8 +10,8 @@ if __name__ == "__main__":
     # a.insertAt(10, 3)
     a.printList()
 
-    for _ in range(5):
-        a.deleteFromEnd()
+    # for _ in range(5):
+    #     a.deleteFromEnd()
 
+    a.deleteFrom(5)
     a.printList()
-    a.deleteFromEnd()
