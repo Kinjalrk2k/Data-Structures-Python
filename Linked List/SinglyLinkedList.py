@@ -24,14 +24,14 @@ class SinglyLinkedList:
                 curr = curr.next
             curr.next = new_node
 
-    def insertAtBegining(self, data):
+    def insertAtBeginning(self, data):
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
 
     def insertAt(self, data, pos: int):
         if pos == 0:
-            self.insertAtBegining(data)
+            self.insertAtBeginning(data)
             return
 
         new_node = Node(data)
