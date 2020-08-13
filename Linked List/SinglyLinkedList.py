@@ -108,3 +108,13 @@ class SinglyLinkedList:
             print(curr.data, end=seperator)
             curr = curr.next
         print("\b"*len(seperator) + " "*len(seperator) + "\b"*len(seperator))
+
+    def toList(self):
+        if self.head == None:
+            warnings.warn('Linked List is empty', RuntimeWarning)
+            return
+
+        curr = self.head
+        while curr is not None:
+            yield curr.data
+            curr = curr.next
