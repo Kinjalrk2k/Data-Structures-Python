@@ -13,5 +13,7 @@ if __name__ == "__main__":
     # for _ in range(5):
     #     a.deleteFromEnd()
 
-    a.deleteFrom(5)
+    a.deleteFrom(3)
     a.printList()
+
+    print(list(a.toList()))
