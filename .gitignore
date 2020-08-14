@@ -130,3 +130,6 @@ dmypy.json
 
 
 .vscode/
+
+# developer override tests (I'm a smartass)
+main.py

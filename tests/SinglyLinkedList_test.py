@@ -1,6 +1,6 @@
 import unittest
 import random
-from SinglyLinkedList import SinglyLinkedList
+from LinkedList import SinglyLinkedList
 
 RANDMAX = 100
 
@@ -28,7 +28,7 @@ class TestInsert(unittest.TestCase):
             self.test_list.insert(0, test_insert)
             self.test_SinglyLinkedList.insertAtBeginning(test_insert)
         
-        self.assertEqual(list(self.test_SinglyLinkedList.toList()), self.test_list)
+            self.assertEqual(list(self.test_SinglyLinkedList.toList()), self.test_list)
 
 
 
