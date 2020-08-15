@@ -3,7 +3,18 @@ import random
 from LinkedList import SinglyLinkedList
 
 RANDMAX = 100
+'''
+ATTRIBUTES:-
+self.test_list -> A python list which contains the elements in order
+self.test_SinglyLinkedList -> The actual Singly Linked List Object to do operations
+test_insert -> A random test element to insert in the List
+test_insert_pos -> A random position to insert the test element at
 
+APPROACH:-
+Similar operation is done in both the self.test_list and self.test_SinglyLinkedList
+Then they are asserted to equal.
+At certain test-cases, warnings are tested: The test case pases when the warning is correctly raised
+'''
 
 class TestInsert(unittest.TestCase):
     def __init__(self, *args, **kwargs):
