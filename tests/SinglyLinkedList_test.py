@@ -90,5 +90,15 @@ class TestInsert(unittest.TestCase):
                 list(self.test_SinglyLinkedList.toList()), self.test_list)
 
 
+class TestDelete(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestInsert, self).__init__(*args, **kwargs)
+
+        self.test_list = random.sample(range(0, RANDMAX), RANDMAX//2)
+        self.test_SinglyLinkedList = SinglyLinkedList()
+        for i in self.test_list:
+            self.test_SinglyLinkedList.insertAtEnd(i)
+
+
 if __name__ == '__main__':
     unittest.main()
