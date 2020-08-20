@@ -118,3 +118,60 @@ class SinglyLinkedList:
         while curr is not None:
             yield curr.data
             curr = curr.next
+
+    def __len__(self):
+        c = 0
+        curr = self.head
+        while curr:
+            c += 1
+            curr = curr.next
+        return c
+
+    def __getitem__(self, key):
+        if type(key) is not int:
+            raise TypeError
+
+        if self.head is None:
+            raise IndexError
+
+        if key == 0:
+            return self.head.data
+
+        elif key > 0:
+            curr = self.head
+            try:
+                for _ in range(key):
+                    curr = curr.next
+                return curr.data
+            except AttributeError:
+                warnings.warn('Index passed is out of bounds', RuntimeWarning)
+
+    def __setitem__(self, key, value):
+        if type(key) is not int:
+            raise TypeError
+
+        if self.head is None:
+            raise IndexError
+
+        if key == 0:
+            self.head.data = value
+
+        elif key > 0:
+            curr = self.head
+            try:
+                for _ in range(key):
+                    curr = curr.next
+                curr.data = value
+            except AttributeError:
+                warnings.warn('Index passed is out of bounds', RuntimeWarning)
+
+    def __delitem__(self, key):
+        self.deleteFrom(key)
+
+    def __iter__(self):
+        curr = self.head
+        while curr is not None:
+            yield curr.data
+            curr = curr.next
+
+    
