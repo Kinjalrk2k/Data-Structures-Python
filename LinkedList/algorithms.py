@@ -1,4 +1,5 @@
 from LinkedList import SinglyLinkedList, Node
+import warnings
 
 def join(*slls):
     joinedSLL = SinglyLinkedList()
@@ -17,3 +18,23 @@ def join(*slls):
     joinedSLL.head = disconnectedHead
     return joinedSLL
         
+def split(sll, pos):
+    leftPart = SinglyLinkedList()
+    rightPart = SinglyLinkedList()
+
+    disconnectedHead1 = sll.head
+    disconnectedHead2 = None
+
+    curr = sll.head
+    try:
+        for _ in range(pos-1):
+            curr = curr.next
+        disconnectedHead2 = curr.next
+        curr.next = None
+    except AttributeError:
+        warnings.warn('Position passed is out of bounds', RuntimeWarning)
+
+    leftPart.head = disconnectedHead1
+    rightPart.head = disconnectedHead2
+
+    return(leftPart, rightPart)
