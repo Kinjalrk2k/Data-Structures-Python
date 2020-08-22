@@ -201,9 +201,12 @@ class SinglyLinkedList:
             return
 
         curr = self.head
+        strRep = ""
         while curr is not None:
-            print(curr.data, end=seperator)
+            strRep += str(curr.data) + seperator
             curr = curr.next
-        return ("\b"*len(seperator) + " "*len(seperator) + "\b"*len(seperator))
+        strRep += ("\b"*len(seperator) + " "*len(seperator) + "\b"*len(seperator))
+
+        return strRep
 
     
