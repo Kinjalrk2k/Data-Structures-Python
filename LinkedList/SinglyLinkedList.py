@@ -14,6 +14,11 @@ class SinglyLinkedList:
         else:
             self.head = Node(data)
 
+    def __init__(self, dataList: list):
+        self.head = Node(dataList[0])
+        for data in dataList[1:]:
+            self.insertAtEnd(data)
+
     def insertAtEnd(self, data):
         new_node = Node(data)
         if self.head is None:
