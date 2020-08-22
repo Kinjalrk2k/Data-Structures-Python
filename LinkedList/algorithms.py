@@ -18,7 +18,7 @@ def join(*slls):
     joinedSLL.head = disconnectedHead
     return joinedSLL
         
-def split(sll, pos):
+def split(sll: SinglyLinkedList, pos):
     leftPart = SinglyLinkedList()
     rightPart = SinglyLinkedList()
 
@@ -38,3 +38,23 @@ def split(sll, pos):
     rightPart.head = disconnectedHead2
 
     return(leftPart, rightPart)
+
+def min(sll: SinglyLinkedList):
+    minVal = sll.head.data
+    curr = sll.head
+    while curr is not None:
+        if curr.data <= minVal:
+            minVal = curr.data
+        curr = curr.next
+
+    return minVal
+
+def max(sll: SinglyLinkedList):
+    maxVal = sll.head.data
+    curr = sll.head
+    while curr is not None:
+        if curr.data >= maxVal:
+            maxVal = curr.data
+        curr = curr.next
+
+    return maxVal
