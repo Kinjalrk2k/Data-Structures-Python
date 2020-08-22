@@ -124,6 +124,20 @@ class SinglyLinkedList:
             yield curr.data
             curr = curr.next
 
+    def extend(self, anotherSLL):
+        if type(anotherSLL) is not SinglyLinkedList:
+            raise TypeError
+
+        elif anotherSLL.head == None:
+            warnings.warn('Linked List is empty', RuntimeWarning)
+            return
+
+        else:
+            curr = self.head
+            while curr.next:
+                curr = curr.next
+            curr.next = anotherSLL.head
+
     def __len__(self):
         c = 0
         curr = self.head
