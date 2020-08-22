@@ -174,4 +174,17 @@ class SinglyLinkedList:
             yield curr.data
             curr = curr.next
 
+    def __str__(self):
+        seperator=" -> "
+
+        if self.head == None:
+            warnings.warn('Linked List is empty', RuntimeWarning)
+            return
+
+        curr = self.head
+        while curr is not None:
+            print(curr.data, end=seperator)
+            curr = curr.next
+        return ("\b"*len(seperator) + " "*len(seperator) + "\b"*len(seperator))
+
     
