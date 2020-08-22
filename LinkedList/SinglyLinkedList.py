@@ -11,13 +11,13 @@ class SinglyLinkedList:
     def __init__(self, data=None):
         if data is None:
             self.head = None
+
+        elif type(data) is list:
+            self.head = Node(data[0])
+            for d in data[1:]:
+                self.insertAtEnd(d)
         else:
             self.head = Node(data)
-
-    def __init__(self, dataList: list):
-        self.head = Node(dataList[0])
-        for data in dataList[1:]:
-            self.insertAtEnd(data)
 
     def insertAtEnd(self, data):
         new_node = Node(data)
